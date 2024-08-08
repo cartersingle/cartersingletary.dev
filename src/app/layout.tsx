@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -17,14 +18,21 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
