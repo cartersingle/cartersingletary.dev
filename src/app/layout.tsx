@@ -4,6 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/navbar";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -31,6 +32,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           enableSystem
           disableTransitionOnChange
         >
+          <header>
+            <Navbar />
+          </header>
           {children}
         </ThemeProvider>
       </body>
