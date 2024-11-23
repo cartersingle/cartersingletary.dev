@@ -1,11 +1,5 @@
-import { ModeToggle } from "@/components/mode-toggle";
-
 const RootPage = () => {
-  return (
-    <div>
-      <ModeToggle />
-    </div>
-  );
+  return <div>RootPage</div>;
 };
 
 export default RootPage;
