@@ -3,13 +3,11 @@ import { signIn } from "@/lib/auth";
 import Link from "next/link";
 
 interface AuthPageProps {
-  searchParams: {
-    redirect: string | undefined;
-  };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const AuthPage = ({ searchParams }: AuthPageProps) => {
-  const redirectTo = searchParams.redirect ?? "/";
+const AuthPage = async ({ searchParams }: AuthPageProps) => {
+  const { redirect = "/" } = await searchParams;
 
   return (
     <main className="flex h-screen items-center justify-center">
@@ -23,7 +21,7 @@ const AuthPage = ({ searchParams }: AuthPageProps) => {
             "use server";
 
             await signIn("github", {
-              redirectTo,
+              redirectTo: typeof redirect === "string" ? redirect : redirect[0],
             });
           }}
         >
