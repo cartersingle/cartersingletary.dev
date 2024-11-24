@@ -1,7 +1,7 @@
 import { Nav } from "@/components/nav";
-import { type PropsWithChildren } from "React";
+import { type ReactNode } from "React";
 
-const MainLayout = ({ children }: PropsWithChildren) => {
+const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <main>
       <Nav />
