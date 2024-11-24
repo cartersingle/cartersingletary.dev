@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { type PropsWithChildren } from "React";
+import { cn } from "@/lib/utils";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -11,12 +14,12 @@ export const metadata: Metadata = {
   description: "Personal Website",
 };
 
-import { type PropsWithChildren } from "React";
-
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={cn("antialiased", inter.className)}>
+        <main>{children}</main>
+      </body>
     </html>
   );
 };
