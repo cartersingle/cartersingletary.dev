@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { type PropsWithChildren } from "React";
+import { type PropsWithChildren } from "react";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
